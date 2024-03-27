@@ -1,8 +1,10 @@
-<article class="todo">
+<section class="todos">
   @for (todo of todos(); track $index) {
-  <span>User: {{ todo.userId }}</span>
-  <span>Id: {{ todo.id }}</span>
-  <span>Title: {{ todo.title }}</span>
-  <span>Completed: {{ todo.completed ? 'Completado' : 'Pendiente' }}</span>
+  <article class="todo">
+    <span>User: {{ todo.userId }}</span>
+    <span>Id: {{ todo.id }}</span>
+    <span>Title: {{ todo.title }}</span>
+    <span>Completed: {{ todo.completed ? 'Completado' : 'Pendiente' }}</span>
+  </article>
   }
-</article>
+</section>

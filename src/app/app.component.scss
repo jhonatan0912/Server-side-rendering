@@ -1,0 +1,39 @@
+.todos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+
+
+  .todo {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: .5rem;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    cursor: pointer;
+
+    &:hover {
+      scale: .97;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .todos {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .todos {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .todos {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}
