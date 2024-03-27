@@ -1,10 +1,13 @@
+<h1 class="title">Todos list</h1>
+
 <section class="todos">
   @for (todo of todos(); track $index) {
   <article class="todo">
-    <span>User: {{ todo.userId }}</span>
-    <span>Id: {{ todo.id }}</span>
-    <span>Title: {{ todo.title }}</span>
-    <span>Completed: {{ todo.completed ? 'Completado' : 'Pendiente' }}</span>
+    <p><span class="bold">User: </span>{{ todo.userId }}</p>
+    <p> <span class="bold">Id: </span>{{ todo.id }}</p>
+    <p> <span class="bold">Title: </span>{{ todo.title }}</p>
+    <p> <span class="bold">Completed: </span>
+      {{ todo.completed ? 'Completado ✅' : 'Pendiente ❌'}}</p>
   </article>
   }
 </section>
