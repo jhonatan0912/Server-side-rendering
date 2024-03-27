@@ -1,30 +1,33 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, inject, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, DestroyRef, OnInit, inject, signal } from '@angular/core';
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { TodoComponent } from './components/todo/todo.component';
+import { Todo } from '@core/types';
 
-interface Todo {
-  completed: boolean;
-  id: number;
-  title: string;
-  userId: number;
-}
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [TodoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
 
-  private http = inject(HttpClient);
+  private readonly _http = inject(HttpClient);
+  private readonly _destroyRef = inject(DestroyRef);
+
+  baseUrl: string = 'https://jsonplaceholder.typicode.com/todos';
   todos = signal<Todo[]>([]);
 
   ngOnInit(): void {
-    this.http.get('https://jsonplaceholder.typicode.com/todos')
-      .subscribe((todos: any) => {
-        this.todos.set(todos);
+    this._http.get(this.baseUrl)
+      .pipe(
+        takeUntilDestroyed(this._destroyRef)
+      ).subscribe({
+        next: (todos: any) => {
+          this.todos.set(todos);
+        }
       });
   }
 }
