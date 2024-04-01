@@ -1,0 +1,6 @@
+
+<section class="todos">
+  @for (todo of todos(); track $index) {
+  <todo (onDetail)="onDetail($event)" [todo]="todo" />
+  }
+</section>

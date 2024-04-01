@@ -1,0 +1,24 @@
+.todos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+@media screen and (min-width: 600px) {
+  .todos {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .todos {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .todos {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}

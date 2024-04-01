@@ -1,4 +1,4 @@
-import { Component, OnInit, input } from '@angular/core';
+import { Component, OnInit, input, output } from '@angular/core';
 import { Todo } from '@core/types';
 
 @Component({
@@ -11,6 +11,8 @@ import { Todo } from '@core/types';
 export class TodoComponent implements OnInit {
 
   todo = input.required<Todo>();
+
+  onDetail = output<Todo>();
 
   constructor() { }
 

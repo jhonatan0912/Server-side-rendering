@@ -1,0 +1,10 @@
+.todo {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: .5rem;
+  padding: .5rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  cursor: pointer;
+}
